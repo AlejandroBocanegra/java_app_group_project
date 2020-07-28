@@ -19,8 +19,8 @@ public class MedicalReadinessController {
     @Autowired
     private UserRepository userRepository;
 
-    // @Autowired
-    // private MedicalReadiness medicalReadiness;
+    @Autowired
+    private MedicalReadinessRepository medicalReadinessRepository;
 
     //CRLUD
 
@@ -28,6 +28,11 @@ public class MedicalReadinessController {
     @PostMapping("/newRecord")
     public User newUserRecord (@RequestBody User newUserRec) {
         return this.userRepository.save(newUserRec);
+    }
+
+    @PostMapping("/test")
+    public MedicalReadiness newMedicalRecord (@RequestBody MedicalReadiness newUserRec) {
+        return this.medicalReadinessRepository.save(newUserRec);
     }
 
     //Read all records
