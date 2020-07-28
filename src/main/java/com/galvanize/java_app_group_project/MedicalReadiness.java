@@ -15,13 +15,139 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name= "medical_readiness_table")
+@Table(name = "medical_readiness_table")
 public class MedicalReadiness {
-    
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "is_tasked")
+    private Boolean isTasked;
+
+    @Column(columnDefinition = "date", name = "task_depart_by_date")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date taskDepartByDate;
+
+    @Column(name = "is_mental_check_completed")
+    private Boolean isMentalCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "mental_check_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date mentalCheckLast;
+
+    @Column(columnDefinition = "date", name = "mental_check_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date mentalCheckNext;
+
+    @Column(name = "is_dental_check_completed")
+    private Boolean isDentalCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "dental_check_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date dentalCheckLast;
+
+    @Column(columnDefinition = "date", name = "dental_check_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date dentalCheckNext;
+
+    @Column(name = "is_optical_check_completed")
+    private Boolean isOpticalCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "optical_check_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date opticalCheckLast;
+
+    @Column(columnDefinition = "date", name = "optical_check_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date opticalCheckNext;
+
+    @Column(name = "is_physical_check_completed")
+    private Boolean isPhysicalCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "physical_check_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date physicalCheckLast;
+
+    @Column(columnDefinition = "date", name = "physical_check_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date physicalCheckNext;
+
+    @Column(name = "is_malaria_shot_completed")
+    private Boolean isMalariaShotCompleted;
+    
+    @Column(columnDefinition = "date", name = "malaria_shot_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date malariaShotLast;
+
+    @Column(columnDefinition = "date", name = "malaria_shot_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date malariaShotNext;
+
+    @Column(name = "is_penicillin_shot_completed")
+    private Boolean isPenicillinShotCompleted;
+
+    @Column(columnDefinition = "date", name = "penicillian_shot_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date penicillianShotLast;
+
+    @Column(columnDefinition = "date", name = "penicillian_shot_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date penicillianShotNext;
+
+    @Column(name = "is_anthrax_shot_completed")
+    private Boolean isAnthraxShotCompleted;
+
+    @Column(columnDefinition = "date", name = "anthrax_shot_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date anthraxShotLast;
+
+    @Column(columnDefinition = "date", name = "anthrax_shot_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date anthraxShotNext;
+
+    @Column(name = "is_smallpox_shot_completed")
+    private Boolean isSmallpoxShotCompleted;
+
+    @Column(columnDefinition = "date", name = "smallpox_shot_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date smallpoxShotLast;
+
+    @Column(columnDefinition = "date", name = "smallpox_shot_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date smallpoxShotNext;
+
+    @Column(columnDefinition = "date", name = "hiv_check_last")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date hivCheckLast;
+
+    @Column(name = "is_hiv_check_completed")
+    private Boolean isHivCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "hiv_check_next")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date hivCheckNext;
+
+    @Column(name = "is_deplpoy_mental_check_completed")
+    private Boolean isDeplpoyMentalCheckCompleted;
+
+    @Column(columnDefinition = "date", name = "deploy_mental_check_due")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date deployMentalCheckDue;
+
+    @Column(name = "is_return_mental_check_compelted")
+    private Boolean isReturnMentalCheckCompelted;
+
+    @Column(columnDefinition = "date", name = "return_mental_check_due")
+    @JsonFormat(pattern = "dd-MMM-yy")
+    private Date returnMentalCheckDue;
+
+    @Column(name = "user_id")
+    private int userID;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "medicalReadinesses")
+    private User user;
 
     public Long getId() {
         return this.id;
@@ -31,9 +157,6 @@ public class MedicalReadiness {
         this.id = id;
     }
 
-    @Column(name = "is_tasked")
-    private Boolean isTasked;
-
     public Boolean getIsTasked() {
         return this.isTasked;
     }
@@ -41,10 +164,6 @@ public class MedicalReadiness {
     public void setIsTasked(Boolean isTasked) {
         this.isTasked = isTasked;
     }
-
-    @Column(columnDefinition = "date", name = "task_depart_by_date")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date taskDepartByDate;
 
     public Date getTaskDepartByDate() {
         return this.taskDepartByDate;
@@ -54,9 +173,6 @@ public class MedicalReadiness {
         this.taskDepartByDate = taskDepartByDate;
     }
 
-    @Column(name = "is_mental_check_completed")
-    private Boolean isMentalCheckCompleted;
-
     public Boolean getIsMentalCheckCompleted() {
         return this.isMentalCheckCompleted;
     }
@@ -64,10 +180,6 @@ public class MedicalReadiness {
     public void setIsMentalCheckCompleted(Boolean isMentalCheckCompleted) {
         this.isMentalCheckCompleted = isMentalCheckCompleted;
     }
-
-    @Column(columnDefinition = "date", name = "mental_check_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date mentalCheckLast;
 
     public Date getMentalCheckLast() {
         return this.mentalCheckLast;
@@ -77,10 +189,6 @@ public class MedicalReadiness {
         this.mentalCheckLast = mentalCheckLast;
     }
 
-    @Column(columnDefinition = "date", name = "mental_check_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date mentalCheckNext;
-
     public Date getMentalCheckNext() {
         return this.mentalCheckNext;
     }
@@ -88,9 +196,6 @@ public class MedicalReadiness {
     public void setMentalCheckNext(Date mentalCheckNext) {
         this.mentalCheckNext = mentalCheckNext;
     }
-
-    @Column(name = "is_dental_check_completed")
-    private Boolean isDentalCheckCompleted;
 
     public Boolean getIsDentalCheckCompleted() {
         return this.isDentalCheckCompleted;
@@ -100,10 +205,6 @@ public class MedicalReadiness {
         this.isDentalCheckCompleted = isDentalCheckCompleted;
     }
 
-    @Column(columnDefinition = "date", name = "dental_check_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date dentalCheckLast;
-
     public Date getDentalCheckLast() {
         return this.dentalCheckLast;
     }
@@ -111,10 +212,6 @@ public class MedicalReadiness {
     public void setDentalCheckLast(Date dentalCheckLast) {
         this.dentalCheckLast = dentalCheckLast;
     }
-
-    @Column(columnDefinition = "date", name = "dental_check_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date dentalCheckNext;
 
     public Date getDentalCheckNext() {
         return this.dentalCheckNext;
@@ -124,9 +221,6 @@ public class MedicalReadiness {
         this.dentalCheckNext = dentalCheckNext;
     }
 
-    @Column(name = "is_optical_check_completed")
-    private Boolean isOpticalCheckCompleted;
-
     public Boolean getIsOpticalCheckCompleted() {
         return this.isOpticalCheckCompleted;
     }
@@ -134,10 +228,6 @@ public class MedicalReadiness {
     public void setIsOpticalCheckCompleted(Boolean isOpticalCheckCompleted) {
         this.isOpticalCheckCompleted = isOpticalCheckCompleted;
     }
-
-    @Column(columnDefinition = "date", name = "optical_check_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date opticalCheckLast;
 
     public Date getOpticalCheckLast() {
         return this.opticalCheckLast;
@@ -147,10 +237,6 @@ public class MedicalReadiness {
         this.opticalCheckLast = opticalCheckLast;
     }
 
-    @Column(columnDefinition = "date", name = "optical_check_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date opticalCheckNext;
-
     public Date getOpticalCheckNext() {
         return this.opticalCheckNext;
     }
@@ -158,9 +244,6 @@ public class MedicalReadiness {
     public void setOpticalCheckNext(Date opticalCheckNext) {
         this.opticalCheckNext = opticalCheckNext;
     }
-
-    @Column(name = "is_physical_check_completed")
-    private Boolean isPhysicalCheckCompleted;
 
     public Boolean getIsPhysicalCheckCompleted() {
         return this.isPhysicalCheckCompleted;
@@ -170,10 +253,6 @@ public class MedicalReadiness {
         this.isPhysicalCheckCompleted = isPhysicalCheckCompleted;
     }
 
-    @Column(columnDefinition = "date", name = "physical_check_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date physicalCheckLast;
-
     public Date getPhysicalCheckLast() {
         return this.physicalCheckLast;
     }
@@ -181,10 +260,6 @@ public class MedicalReadiness {
     public void setPhysicalCheckLast(Date physicalCheckLast) {
         this.physicalCheckLast = physicalCheckLast;
     }
-
-    @Column(columnDefinition = "date", name = "physical_check_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date physicalCheckNext;
 
     public Date getPhysicalCheckNext() {
         return this.physicalCheckNext;
@@ -194,9 +269,6 @@ public class MedicalReadiness {
         this.physicalCheckNext = physicalCheckNext;
     }
 
-    @Column(name = "is_malaria_shot_completed")
-    private Boolean isMalariaShotCompleted;
-
     public Boolean getIsMalariaShotCompleted() {
         return this.isMalariaShotCompleted;
     }
@@ -204,10 +276,6 @@ public class MedicalReadiness {
     public void setIsMalariaShotCompleted(Boolean isMalariaShotCompleted) {
         this.isMalariaShotCompleted = isMalariaShotCompleted;
     }
-
-    @Column(columnDefinition = "date", name = "malaria_shot_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date malariaShotLast;
 
     public Date getMalariaShotLast() {
         return this.malariaShotLast;
@@ -217,10 +285,6 @@ public class MedicalReadiness {
         this.malariaShotLast = malariaShotLast;
     }
 
-    @Column(columnDefinition = "date", name = "malaria_shot_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date malariaShotNext;
-
     public Date getMalariaShotNext() {
         return this.malariaShotNext;
     }
@@ -228,9 +292,6 @@ public class MedicalReadiness {
     public void setMalariaShotNext(Date malariaShotNext) {
         this.malariaShotNext = malariaShotNext;
     }
-
-    @Column(name = "is_penicillin_shot_completed")
-    private Boolean isPenicillinShotCompleted;
 
     public Boolean getIsPenicillinShotCompleted() {
         return this.isPenicillinShotCompleted;
@@ -240,10 +301,6 @@ public class MedicalReadiness {
         this.isPenicillinShotCompleted = isPenicillinShotCompleted;
     }
 
-    @Column(columnDefinition = "date", name = "penicillian_shot_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date penicillianShotLast;
-
     public Date getPenicillianShotLast() {
         return this.penicillianShotLast;
     }
@@ -251,10 +308,6 @@ public class MedicalReadiness {
     public void setPenicillianShotLast(Date penicillianShotLast) {
         this.penicillianShotLast = penicillianShotLast;
     }
-
-    @Column(columnDefinition = "date", name = "penicillian_shot_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date penicillianShotNext;
 
     public Date getPenicillianShotNext() {
         return this.penicillianShotNext;
@@ -264,9 +317,6 @@ public class MedicalReadiness {
         this.penicillianShotNext = penicillianShotNext;
     }
 
-    @Column(name = "is_anthrax_shot_completed")
-    private Boolean isAnthraxShotCompleted;
-
     public Boolean getIsAnthraxShotCompleted() {
         return this.isAnthraxShotCompleted;
     }
@@ -274,10 +324,6 @@ public class MedicalReadiness {
     public void setIsAnthraxShotCompleted(Boolean isAnthraxShotCompleted) {
         this.isAnthraxShotCompleted = isAnthraxShotCompleted;
     }
-
-    @Column(columnDefinition = "date", name = "anthrax_shot_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date anthraxShotLast;
 
     public Date getAnthraxShotLast() {
         return this.anthraxShotLast;
@@ -287,10 +333,6 @@ public class MedicalReadiness {
         this.anthraxShotLast = anthraxShotLast;
     }
 
-    @Column(columnDefinition = "date", name = "anthrax_shot_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date anthraxShotNext;
-
     public Date getAnthraxShotNext() {
         return this.anthraxShotNext;
     }
@@ -298,9 +340,6 @@ public class MedicalReadiness {
     public void setAnthraxShotNext(Date anthraxShotNext) {
         this.anthraxShotNext = anthraxShotNext;
     }
-
-    @Column(name = "is_smallpox_shot_completed")
-    private Boolean isSmallpoxShotCompleted;
 
     public Boolean getIsSmallpoxShotCompleted() {
         return this.isSmallpoxShotCompleted;
@@ -310,10 +349,6 @@ public class MedicalReadiness {
         this.isSmallpoxShotCompleted = isSmallpoxShotCompleted;
     }
 
-    @Column(columnDefinition = "date", name = "smallpox_shot_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date smallpoxShotLast;
-
     public Date getSmallpoxShotLast() {
         return this.smallpoxShotLast;
     }
@@ -321,10 +356,6 @@ public class MedicalReadiness {
     public void setSmallpoxShotLast(Date smallpoxShotLast) {
         this.smallpoxShotLast = smallpoxShotLast;
     }
-
-    @Column(columnDefinition = "date", name = "smallpox_shot_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date smallpoxShotNext;
 
     public Date getSmallpoxShotNext() {
         return this.smallpoxShotNext;
@@ -334,9 +365,6 @@ public class MedicalReadiness {
         this.smallpoxShotNext = smallpoxShotNext;
     }
 
-    @Column(name = "is_hiv_check_completed")
-    private Boolean isHivCheckCompleted;
-
     public Boolean getIsHivCheckCompleted() {
         return this.isHivCheckCompleted;
     }
@@ -344,10 +372,6 @@ public class MedicalReadiness {
     public void setIsHivCheckCompleted(Boolean isHivCheckCompleted) {
         this.isHivCheckCompleted = isHivCheckCompleted;
     }
-
-    @Column(columnDefinition = "date", name = "hiv_check_last")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date hivCheckLast;
 
     public Date getHivCheckLast() {
         return this.hivCheckLast;
@@ -357,10 +381,6 @@ public class MedicalReadiness {
         this.hivCheckLast = hivCheckLast;
     }
 
-    @Column(columnDefinition = "date", name = "hiv_check_next")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date hivCheckNext;
-
     public Date getHivCheckNext() {
         return this.hivCheckNext;
     }
@@ -368,9 +388,6 @@ public class MedicalReadiness {
     public void setHivCheckNext(Date hivCheckNext) {
         this.hivCheckNext = hivCheckNext;
     }
-
-    @Column(name = "is_deplpoy_mental_check_completed")
-    private Boolean isDeplpoyMentalCheckCompleted;
 
     public Boolean getIsDeplpoyMentalCheckCompleted() {
         return this.isDeplpoyMentalCheckCompleted;
@@ -380,10 +397,6 @@ public class MedicalReadiness {
         this.isDeplpoyMentalCheckCompleted = isDeplpoyMentalCheckCompleted;
     }
 
-    @Column(columnDefinition = "date", name = "deploy_mental_check_due")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date deployMentalCheckDue;
-
     public Date getDeployMentalCheckDue() {
         return this.deployMentalCheckDue;
     }
@@ -391,9 +404,6 @@ public class MedicalReadiness {
     public void setDeployMentalCheckDue(Date deployMentalCheckDue) {
         this.deployMentalCheckDue = deployMentalCheckDue;
     }
-
-    @Column(name = "is_return_mental_check_compelted")
-    private Boolean isReturnMentalCheckCompelted;
 
     public Boolean getIsReturnMentalCheckCompelted() {
         return this.isReturnMentalCheckCompelted;
@@ -403,10 +413,6 @@ public class MedicalReadiness {
         this.isReturnMentalCheckCompelted = isReturnMentalCheckCompelted;
     }
 
-    @Column(columnDefinition = "date", name = "return_mental_check_due")
-    @JsonFormat(pattern = "dd-MMM-yy")
-    private Date returnMentalCheckDue;
-
     public Date getReturnMentalCheckDue() {
         return this.returnMentalCheckDue;
     }
@@ -414,9 +420,6 @@ public class MedicalReadiness {
     public void setReturnMentalCheckDue(Date returnMentalCheckDue) {
         this.returnMentalCheckDue = returnMentalCheckDue;
     }
-
-    @Column(name = "user_id")
-    private int userID;
 
     public int getUserID() {
         return this.userID;
@@ -426,9 +429,4 @@ public class MedicalReadiness {
         this.userID = userID;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "medicalReadinesses")
-    private User user;
-
-
-    
 }
