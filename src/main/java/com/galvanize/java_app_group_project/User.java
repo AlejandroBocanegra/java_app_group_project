@@ -1,14 +1,13 @@
 package com.galvanize.java_app_group_project;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+//import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,22 +17,41 @@ public class User {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Long id;
+
+    @Column(name = "user_grade")
     private String grade;
-    private String last_name;
-    private String first_name;
+
+    @Column(name= "user_last_name")
+    private String lName;
+
+    @Column(name= "user_first_name")
+    private String fName;
+
+    @Column(name= "user_edipi")
     private Integer edipi;
+
+    @Column(name= "user_afsc")
     private String afsc;
+
+    @Column(name= "user_role")
     private String role;
+
+    @Column(name = "user_base")
     private String base;
+
+    @Column(name = "user_unit")
     private String unit;
-    private String e_mail;
+
+    @Column(name = "user_e_mail")
+    private String eMail;
+
+    @Column(name = "user_password")
     private String password;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name= "user_medred_fk", referencedColumnName = "id")
-
-    private List<MedicalReadiness> medicalReadinesses;
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
+    private MedicalReadiness medicalReadiness;
 
     public String getGrade() {
         return this.grade;
@@ -43,20 +61,20 @@ public class User {
         this.grade = grade;
     }
 
-    public String getLast_name() {
-        return this.last_name;
+    public String getLastName() {
+        return this.lName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String last_name) {
+        this.lName = last_name;
     }
 
-    public String getFirst_name() {
-        return this.first_name;
+    public String getFirstName() {
+        return this.fName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String first_name) {
+        this.fName = first_name;
     }
 
     public Integer getEdipi() {
@@ -99,12 +117,12 @@ public class User {
         this.unit = unit;
     }
 
-    public String getE_mail() {
-        return this.e_mail;
+    public String getEmail() {
+        return this.eMail;
     }
 
-    public void setE_mail(String e_mail) {
-        this.e_mail = e_mail;
+    public void setEmail(String e_mail) {
+        this.eMail = e_mail;
     }
 
     public String getPassword() {
@@ -114,6 +132,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
     
 }

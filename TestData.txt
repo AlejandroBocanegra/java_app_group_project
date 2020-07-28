@@ -1,0 +1,47 @@
+{
+    "grade": "E-3",
+    "edipi": 1985,
+    "afsc": "TimeRider",
+    "role": "Troop",
+    "base": "Thor AFB",
+    "unit": "123 ABC",
+    "password": "julesVerne",
+    "email": "C.C.Brown@dolorian.com",
+    "lastName": "Clayton-Brown",
+    "firstName": "Clara"
+}
+
+{
+    "grade": "E-2",
+    "edipi": 1985,
+    "afsc": "TimeRider",
+    "role": "Troop",
+    "base": "Thor AFB",
+    "unit": "123 ABC",
+    "password": "BackInTime2",
+    "email": "M.McFly@dolorian.com",
+    "lastName": "McFly",
+    "firstName": "Marty"
+}
+
+{
+    "grade": "E-1",
+    "edipi": 1908,
+    "afsc": "civ",
+    "role": "Supervisor",
+    "base": "Thor AFB",
+    "unit": "123 ABC",
+    "password": "BackInTime",
+    "email": "e.brown@dolorian.com",
+    "lastName": "Brown",
+    "firstName": "Emmett"
+}
+
+
+select * from user_table;
+INSERT INTO user_table 
+VALUES (1, 'civ', 'Thor AFB', 'e.brown@dolorian.com', 1908, 'Emmett', 'E-1', 'Brown', 'BackInTime', 'Supervisor', '123 ABC');
+
+drop table medical_readiness_table, user_table;
+desc medical_readiness_table;
+desc user_table;
