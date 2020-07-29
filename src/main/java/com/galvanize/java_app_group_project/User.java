@@ -1,14 +1,11 @@
 package com.galvanize.java_app_group_project;
 
-//import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +13,7 @@ import javax.persistence.Table;
 public class User {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
@@ -50,8 +47,8 @@ public class User {
     @Column(name = "user_password")
     private String password;
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
-    private MedicalReadiness medicalReadiness;
+    @Embedded
+    private MedicalReadiness test01;
 
     public String getGrade() {
         return this.grade;

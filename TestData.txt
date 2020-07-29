@@ -1,20 +1,20 @@
 {
     "grade": "E-3",
     "edipi": 1985,
-    "afsc": "TimeRider",
+    "afsc": "ScienceTeacher",
     "role": "Troop",
     "base": "Thor AFB",
     "unit": "123 ABC",
     "password": "julesVerne",
-    "email": "C.C.Brown@dolorian.com",
-    "lastName": "Clayton-Brown",
+    "email": "C.Clayton@dolorian.com",
+    "lastName": "Clayton",
     "firstName": "Clara"
 }
 
 {
     "grade": "E-2",
     "edipi": 1985,
-    "afsc": "TimeRider",
+    "afsc": "TimeSkater",
     "role": "Troop",
     "base": "Thor AFB",
     "unit": "123 ABC",
@@ -27,7 +27,7 @@
 {
     "grade": "E-1",
     "edipi": 1908,
-    "afsc": "civ",
+    "afsc": "TimeRider",
     "role": "Supervisor",
     "base": "Thor AFB",
     "unit": "123 ABC",
@@ -37,6 +37,12 @@
     "firstName": "Emmett"
 }
 
+{   "email": "C.Brown@dolorian.com",
+    "lastName": "Clayton-Brown",
+    "firstName": "Clara",
+    "role": "Supervisor",
+    "afsc": "TimeRider"
+}
 
 select * from user_table;
 INSERT INTO user_table 

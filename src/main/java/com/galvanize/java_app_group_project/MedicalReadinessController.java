@@ -19,8 +19,8 @@ public class MedicalReadinessController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private MedicalReadinessRepository medicalReadinessRepository;
+    // @Autowired
+    // private MedicalReadinessRepository medicalReadinessRepository;
 
     //CRLUD
 
@@ -30,16 +30,21 @@ public class MedicalReadinessController {
         return this.userRepository.save(newUserRec);
     }
 
-    @PostMapping("/test")
-    public MedicalReadiness newMedicalRecord (@RequestBody MedicalReadiness newUserRec) {
-        return this.medicalReadinessRepository.save(newUserRec);
-    }
+    // @PostMapping("/test")
+    // public MedicalReadiness newMedicalRecord (@RequestBody MedicalReadiness newUserRec) {
+    //     return this.medicalReadinessRepository.save(newUserRec);
+    // }
 
     //Read all records
     @GetMapping("/viewAllRecords")
     public Iterable<User> viewAll() {
         return this.userRepository.findAll();
     }
+
+    // @GetMapping("/testdeux")
+    // public Iterable<MedicalReadiness> viewAllMed() {
+    //     return this.medicalReadinessRepository.findAll();
+    // }
 
     //List a specific record
     @GetMapping("/viewUser/{id}")
