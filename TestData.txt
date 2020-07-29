@@ -44,6 +44,48 @@
     "afsc": "TimeRider"
 }
 
+{
+    "isTasked": true,
+    "isMentalCheckCompleted": false,
+    "isDentalCheckCompleted": true
+}
+
+{
+    "isTasked": true,
+    "taskDepartByDate": null,
+    "isMentalCheckCompleted": false,
+    "mentalCheckLast": null,
+    "mentalCheckNext": null,
+    "isDentalCheckCompleted": true,
+    "dentalCheckLast": null,
+    "dentalCheckNext": null,
+    "isOpticalCheckCompleted": null,
+    "opticalCheckLast": null,
+    "opticalCheckNext": null,
+    "isPhysicalCheckCompleted": null,
+    "physicalCheckLast": null,
+    "physicalCheckNext": null,
+    "isMalariaShotCompleted": null,
+    "malariaShotLast": null,
+    "malariaShotNext": null,
+    "isPenicillinShotCompleted": null,
+    "penicillianShotLast": null,
+    "penicillianShotNext": null,
+    "isAnthraxShotCompleted": null,
+    "anthraxShotLast": null,
+    "anthraxShotNext": null,
+    "isSmallpoxShotCompleted": null,
+    "smallpoxShotLast": null,
+    "smallpoxShotNext": null,
+    "hivCheckLast": null,
+    "isHivCheckCompleted": null,
+    "hivCheckNext": null,
+    "isDeplpoyMentalCheckCompleted": null,
+    "deployMentalCheckDue": null,
+    "isReturnMentalCheckCompelted": null,
+    "returnMentalCheckDue": null
+}
+
 select * from user_table;
 INSERT INTO user_table 
 VALUES (1, 'civ', 'Thor AFB', 'e.brown@dolorian.com', 1908, 'Emmett', 'E-1', 'Brown', 'BackInTime', 'Supervisor', '123 ABC');
