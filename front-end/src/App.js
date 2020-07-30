@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+//Compoments
 import Create from './Components/Create'
 import Read from './Components/Read'
 import List from './Components/List'
@@ -10,14 +12,11 @@ import Header from './Components/Header'
 
 function App() {
   return (
-    <div>
-          <Header/>
-          <Create/>
-          <Read/>
-          <List/>
-          <Update/>
-          <Delete/>
+    <div className="container">
+      <Fragment><Create/></Fragment>
+      <Fragment><Read/></Fragment>
     </div>
+    
   );
 }
 
