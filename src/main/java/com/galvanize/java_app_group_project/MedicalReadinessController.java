@@ -28,6 +28,12 @@ public class MedicalReadinessController {
         return this.userRepository.save(newUser);
     }
 
+    // @PostMapping("/newWhole")
+    // public User newWholeRecord (@RequestBody User newEntire) {
+    //     User p= this.userRepository.createJoin(newEntire);
+    //     return this.userRepository.save(p);
+    // }
+
     @PostMapping("/newRecord")
     public MedicalReadiness newMedicalRecord (@RequestBody MedicalReadiness newRecord) {
         return this.recordRepository.save(newRecord);
@@ -42,6 +48,11 @@ public class MedicalReadinessController {
     @GetMapping("/viewAllRecords")
     public Iterable<MedicalReadiness> viewAllRecords() {
         return this.recordRepository.findAll();
+    }
+
+    @GetMapping("/viewWhole")
+    public Iterable<User> viewJoin() {
+        return this.userRepository.createJoin();
     }
 
     //List a specific record

@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,6 +19,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long userId;
+
+    public Long getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     @Column(name = "user_grade")
     private String grade;
@@ -50,8 +59,17 @@ public class User {
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ut_mrt_join", referencedColumnName = "mrt_id")
-    private MedicalReadiness test01;
+    @JoinColumn( name = "ut_mrt_join", referencedColumnName = "mrt_id" )
+    @MapsId
+    private MedicalReadiness mrt;
+
+    public MedicalReadiness getMrt() {
+        return this.mrt;
+    }
+
+    public void setMrt(MedicalReadiness mrt) {
+        this.mrt = mrt;
+    }
 
     public String getGrade() {
         return this.grade;

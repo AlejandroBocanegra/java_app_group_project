@@ -8,6 +8,7 @@ public class JavaAppGroupProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JavaAppGroupProjectApplication.class, args);
+
 	}
 
 }

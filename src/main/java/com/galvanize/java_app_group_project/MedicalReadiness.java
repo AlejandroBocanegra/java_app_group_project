@@ -18,128 +18,136 @@ public class MedicalReadiness {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mrt_id")
+    @Column(name = "mrt_id") 
     private Long mrtId;
 
-    @Column(name = "mrt_is_tasked")
-    private Boolean isTasked;
+    public Long getMrtId() {
+        return this.mrtId;
+    }
+
+    public void setMrtId(Long mrtId) {
+        this.mrtId = mrtId;
+    }
+
+    @Column(columnDefinition = "boolean default false", name = "mrt_is_tasked")
+    private Boolean isTasked = false;
 
     @Column(columnDefinition = "date", name = "mrt_task_depart_by_date")
     @JsonFormat(pattern = "dd-MMM-yy")
     private Date taskDepartByDate;
 
-    @Column(name = "mrt_is_mental_check_completed")
-    private Boolean isMentalCheckCompleted;
+    @Column(name = "mrt_is_mental_check_completed", columnDefinition = "boolean default false")
+    private Boolean isMentalCheckCompleted = false;
 
     @Column(columnDefinition = "date", name = "mrt_mental_check_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date mentalCheckLast;
+    private Date mentalCheckLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_mental_check_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date mentalCheckNext;
+    private Date mentalCheckNext= new Date();
 
-    @Column(name = "mrt_is_dental_check_completed")
-    private Boolean isDentalCheckCompleted;
+    @Column(name = "mrt_is_dental_check_completed", columnDefinition = "boolean default false")
+    private Boolean isDentalCheckCompleted = false;
 
     @Column(columnDefinition = "date", name = "mrt_dental_check_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date dentalCheckLast;
+    private Date dentalCheckLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_dental_check_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date dentalCheckNext;
+    private Date dentalCheckNext= new Date();
 
-    @Column(name = "mrt_is_optical_check_completed")
-    private Boolean isOpticalCheckCompleted;
+    @Column(name = "mrt_is_optical_check_completed", columnDefinition = "boolean default false")
+    private Boolean isOpticalCheckCompleted = false;
 
     @Column(columnDefinition = "date", name = "mrt_optical_check_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date opticalCheckLast;
+    private Date opticalCheckLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_optical_check_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date opticalCheckNext;
+    private Date opticalCheckNext= new Date();
 
-    @Column(name = "mrt_is_physical_check_completed")
-    private Boolean isPhysicalCheckCompleted;
+    @Column(name = "mrt_is_physical_check_completed", columnDefinition = "boolean default false")
+    private Boolean isPhysicalCheckCompleted = false;
 
     @Column(columnDefinition = "date", name = "mrt_physical_check_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date physicalCheckLast;
+    private Date physicalCheckLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_physical_check_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date physicalCheckNext;
+    private Date physicalCheckNext= new Date();
 
-    @Column(name = "mrt_is_malaria_shot_completed")
-    private Boolean isMalariaShotCompleted;
+    @Column(name = "mrt_is_malaria_shot_completed", columnDefinition = "boolean default false")
+    private Boolean isMalariaShotCompleted = false;
 
     @Column(columnDefinition = "date", name = "mrt_malaria_shot_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date malariaShotLast;
+    private Date malariaShotLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_malaria_shot_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date malariaShotNext;
+    private Date malariaShotNext= new Date();
 
-    @Column(name = "mrt_is_penicillin_shot_completed")
-    private Boolean isPenicillinShotCompleted;
+    @Column(name = "mrt_is_penicillin_shot_completed", columnDefinition = "boolean default false")
+    private Boolean isPenicillinShotCompleted= false;
 
     @Column(columnDefinition = "date", name = "mrt_penicillian_shot_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date penicillianShotLast;
+    private Date penicillianShotLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_penicillian_shot_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date penicillianShotNext;
+    private Date penicillianShotNext= new Date();
 
-    @Column(name = "mrt_is_anthrax_shot_completed")
-    private Boolean isAnthraxShotCompleted;
+    @Column(name = "mrt_is_anthrax_shot_completed", columnDefinition = "boolean default false")
+    private Boolean isAnthraxShotCompleted= false;
 
     @Column(columnDefinition = "date", name = "mrt_anthrax_shot_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date anthraxShotLast;
+    private Date anthraxShotLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_anthrax_shot_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date anthraxShotNext;
+    private Date anthraxShotNext= new Date();
 
-    @Column(name = "mrt_is_smallpox_shot_completed")
-    private Boolean isSmallpoxShotCompleted;
+    @Column(name = "mrt_is_smallpox_shot_completed", columnDefinition = "boolean default false")
+    private Boolean isSmallpoxShotCompleted= false;
 
     @Column(columnDefinition = "date", name = "mrt_smallpox_shot_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date smallpoxShotLast;
+    private Date smallpoxShotLast= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_smallpox_shot_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date smallpoxShotNext;
+    private Date smallpoxShotNext= new Date();
 
     @Column(columnDefinition = "date", name = "mrt_hiv_check_last")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date hivCheckLast;
+    private Date hivCheckLast= new Date();
 
-    @Column(name = "mrt_is_hiv_check_completed")
-    private Boolean isHivCheckCompleted;
+    @Column(name = "mrt_is_hiv_check_completed", columnDefinition = "boolean default false")
+    private Boolean isHivCheckCompleted= false;
 
     @Column(columnDefinition = "date", name = "mrt_hiv_check_next")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date hivCheckNext;
+    private Date hivCheckNext= new Date();
 
-    @Column(name = "mrt_is_deplpoy_mental_check_completed")
-    private Boolean isDeplpoyMentalCheckCompleted;
+    @Column(name = "mrt_is_deplpoy_mental_check_completed", columnDefinition = "boolean default false")
+    private Boolean isDeplpoyMentalCheckCompleted= false;
 
     @Column(columnDefinition = "date", name = "mrt_deploy_mental_check_due")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date deployMentalCheckDue;
+    private Date deployMentalCheckDue= new Date();
 
-    @Column(name = "mrt_is_return_mental_check_compelted")
-    private Boolean isReturnMentalCheckCompelted;
+    @Column(name = "mrt_is_return_mental_check_compelted", columnDefinition = "boolean default false")
+    private Boolean isReturnMentalCheckCompelted = false;
 
     @Column(columnDefinition = "date", name = "mrt_return_mental_check_due")
     @JsonFormat(pattern = "dd-MMM-yy")
-    private Date returnMentalCheckDue;
+    private Date returnMentalCheckDue= new Date();
 
     @OneToOne(mappedBy = "test01")
 

@@ -4,7 +4,15 @@ import React, { Fragment, useState } from 'react'
 const Create = () => {
 
     const [airman, setAirman] = useState("");
-    const [record, setRecord] = useState("");
+    // const [record, setRecord] = useState("");
+
+    const handleChange = (event) => {
+        setAirman({...airman, [event.target.id]:event.target.value})
+    }
+
+    const handleChangeCheckBoxStyle = (event) => {
+        setAirman({...airman, [event.target.id]:!airman[event.target.id]})
+    }
 
     const onSubmitForm = async event => {
         event.preventDefault();
@@ -56,19 +64,11 @@ const Create = () => {
 
             };
 
-            const response1 = await fetch("http://localhost:8080/viewAllUsers", {
+            const response1 = await fetch("http://localhost:8080/newUser", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
             });
-            console.log(response1);
-
-            const response2 = await fetch("http://localhost:8080/newUser", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(body)
-            });
-            console.log(response2);
 
             window.location = "/";
 
@@ -96,7 +96,7 @@ const Create = () => {
                         className="form-control form-control-sm"
                         placeholder="E-1"
                         value={airman.grade}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="firstName">Enter First Name</label>
                     <input
@@ -105,7 +105,7 @@ const Create = () => {
                         className="form-control form-control-sm"
                         placeholder="John"
                         value={airman.firstName}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="lastName">Enter Last Name</label>
                     <input
@@ -114,43 +114,43 @@ const Create = () => {
                         className="form-control form-control-sm"
                         placeholder="Spartan"
                         value={airman.lastName}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="baseName">Enter Base Name</label>
                     <input
-                        id="baseName"
+                        id="base"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="Thor AB"
                         value={airman.base}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="unitName">Enter Unit Name</label>
                     <input
-                        id="unitName"
+                        id="unit"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="101 CS"
                         value={airman.unit}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="afsc">Enter AFSC</label>
                     <input
-                        id="AFSC"
+                        id="afsc"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="5P453"
                         value={airman.afsc}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="duty">Enter Duty Position</label>
                     <input
-                        id="duty"
+                        id="dutyPosition"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="Space Marine"
                         value={airman.dutyPosition}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="email">Enter E-Mail</label>
                     <input
@@ -159,15 +159,16 @@ const Create = () => {
                         className="form-control form-control-sm"
                         placeholder="J.Spartan@mewmew.mil"
                         value={airman.email}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <label for="password">Enter a Password</label>
                     <input
+                        id="password"
                         type="password"
                         className="form-control form-control-sm"
                         placeholder="Gr33nt4st35th3B3st"
                         value={airman.password}
-                        onChange={event => setAirman(event.target.value)}
+                        onChange={handleChange}
                     />
                     <small id="passwordHelpBlock" className="form-text text-muted">
                         Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
@@ -176,110 +177,121 @@ const Create = () => {
                 <div className="col-auto">
                     <div class="form-check mb-2 d-flex mt-1">
                         <input
-                            id="autoSizingCheck"
+                            id="isAnthraxShotCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isAnthraxShotCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                           // value={airman.mrt.isAnthraxShotCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Anthrax Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isDentalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isDentalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isDentalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Dental Records Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isMentalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isMentalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isMentalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Mental Health Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isOpticalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isOpticalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isOpticalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Optical Records Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isPhysicalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isPhysicalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isPhysicalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Physiological Records Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isMalariaShotCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isMalariaShotCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isMalariaShotCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Malaria Inoculation Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isPenicillinShotkCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isPenicillinShotkCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isPenicillinShotkCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Penicillin Inoculation Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isSmallPoxCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isSmallPoxCompleted}
-                            onChange={event => setRecord(!record.isSmallPoxCompleted)}
+                            //value={airman.mrt.isSmallPoxCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Small Pox Inoculation Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isHivCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isHivCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isHivCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">HIV Records Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isTasked"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isTasked}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isTasked}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Personnel Tasked</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isDeploymentMentalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isDeploymentMentalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isDeploymentMentalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Pre-Deployment Mental Checkup Up-to-Date</label>
                     </div>
                     <div class="form-check mb-2 d-flex mt-5">
                         <input
+                            id="isReturnMentalCheckCompleted"
                             type="checkbox"
                             className="form-check-input"
-                            value={record.isReturnMentalCheckCompleted}
-                            onChange={event => setRecord(event.target.value)}
+                            //value={airman.mrt.isReturnMentalCheckCompleted}
+                            onChange={handleChangeCheckBoxStyle}
                         />
                         <label class="form-check-label">Post-Deployment Mental Checkup Up-to-Date</label>
                     </div>
@@ -287,83 +299,93 @@ const Create = () => {
                 <div className="col-auto">
                     <label className="d-flex mt-0">Date of Last Anthrax Inoculation</label>
                     <input
+                        id="anthraxShotLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.anthraxShotLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.anthraxShotLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Dental Exam </label>
                     <input
+                        id="mentalCheckLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.mentalCheckLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.mentalCheckLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Mental Health Checkup (PHA)</label>
                     <input
+                        id="opticalCheckLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.opticalCheckLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.opticalCheckLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Optical Exam</label>
                     <input
+                        id="physicalCheckLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.physicalCheckLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.physicalCheckLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Physiological Exam</label>
                     <input
+                        id="malariaShotLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.malariaShotLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.malariaShotLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Malaria Inoculation</label>
                     <input
+                        id="penicillinShotLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.penicillinShotLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.penicillinShotLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Penicillin Inoculation</label>
                     <input
+                        id="smallpoxShotLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.smallpoxShotLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.smallpoxShotLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last Smallpox Inoculation</label>
                     <input
+                        id="hivCheckLast"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.hivCheckLast}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.hivCheckLast}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Date of Last HIV Checkup</label>
                     <input
+                        id="taskDepartureDate"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.taskDepartureDate}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.taskDepartureDate}
+                        onChange={handleChange}
                     />
                     <label className="d-flex mt-2">Task RTNL Date</label>
                     <input
+                        id="taskDepartByDate"
                         type="text"
                         className="form-control form-control-sm"
                         placeholder="dd MMM YY"
-                        value={record.taskDepartByDate}
-                        onChange={event => setRecord(event.target.value)}
+                        //value={airman.mrt.taskDepartByDate}
+                        onChange={handleChange}
                     />
                     </div>
 

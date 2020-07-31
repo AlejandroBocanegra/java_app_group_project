@@ -86,10 +86,90 @@
     "returnMentalCheckDue": null
 }
 
+
+{
+    "firstName": "Biff",
+    "lastName": "Tannon",
+    "email": "Tannon@EpicFailsThroughTime.com",
+    "grade": "Civ",
+    "edipi": 807,
+    "afsc": "None",
+    "role": "Nemesis",
+    "base": "Thor AB",
+    "unit": "Base Manure Hauler",
+    "password": "ScreenOnABattleShip",
+    "mrt": 
+    {
+        "isTasked": false,
+        "isMentalCheckCompleted": false,
+        "mentalCheckLast": "12-Nov-85",
+        "mentalCheckNext": "14-Nov-86"
+
+    }
+}
+
+
+[
+    {
+        "grade": tes,
+        "edipi": 7,
+        "afsc": null,
+        "role": null,
+        "base": null,
+        "unit": null,
+        "password": null,
+        "mrt": {
+            "isTasked": false,
+            "taskDepartByDate": null,
+            "isMentalCheckCompleted": false,
+            "mentalCheckLast": null,
+            "mentalCheckNext": null,
+            "isDentalCheckCompleted": true,
+            "dentalCheckLast": null,
+            "dentalCheckNext": null,
+            "isOpticalCheckCompleted": false,
+            "opticalCheckLast": null,
+            "opticalCheckNext": null,
+            "isPhysicalCheckCompleted": false,
+            "physicalCheckLast": null,
+            "physicalCheckNext": null,
+            "isMalariaShotCompleted": false,
+            "malariaShotLast": null,
+            "malariaShotNext": null,
+            "isPenicillinShotCompleted": false,
+            "penicillianShotLast": null,
+            "penicillianShotNext": null,
+            "isAnthraxShotCompleted": true,
+            "anthraxShotLast": null,
+            "anthraxShotNext": null,
+            "isSmallpoxShotCompleted": false,
+            "smallpoxShotLast": null,
+            "smallpoxShotNext": null,
+            "hivCheckLast": null,
+            "isHivCheckCompleted": false,
+            "hivCheckNext": null,
+            "isDeplpoyMentalCheckCompleted": true,
+            "deployMentalCheckDue": null,
+            "isReturnMentalCheckCompelted": false,
+            "returnMentalCheckDue": null
+        },
+        "firstName": null,
+        "lastName": null,
+        "email": null
+    }
+]
+
 select * from user_table;
+
 INSERT INTO user_table 
 VALUES (1, 'civ', 'Thor AFB', 'e.brown@dolorian.com', 1908, 'Emmett', 'E-1', 'Brown', 'BackInTime', 'Supervisor', '123 ABC');
 
-drop table medical_readiness_table, user_table;
+INSERT INTO `medical_readiness`.`user_table` 
+(`ut_mrt_join`, `user_afsc`, `user_base`, `user_e_mail`, `user_edipi`, `user_first_name`, `user_grade`, `user_last_name`, `user_password`, `user_role`, `user_unit`, `user_id`) 
+VALUES ('1', 'dfgbg', 'dfgd', 'dfg', 'dfdg', 'dfgf', 'dfg', 'dfgdf', 'dfgfd', 'dfgdf', 'dfgdf', '');
+
+drop table mr_table, user_table;
+
 desc medical_readiness_table;
+
 desc user_table;
